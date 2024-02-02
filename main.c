@@ -27,9 +27,24 @@ void testingComplex() {
     printf("O conjugado de Z1 = %.2f %+.2fi\n", creal(conjugate), cimag(conjugate));
 }
 
+void mandelbrotIteracao(double complex c, int it) {
+    int i;
+    double complex z = 0.0 + 0.0 * I;
+
+
+    for(i = 0; i < it; i++) {
+        printf("%i = %.2f + %.2fi\n", i, creal(z), cimag(z));
+        z = (z * z) + c;
+    }
+}
+
 int main() {
 
     testingComplex();
+
+    double complex c = 1.0 + 0.0 * I;
+
+    mandelbrotIteracao(c, 6);
 
     return 0;
 }
