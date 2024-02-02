@@ -38,6 +38,18 @@ void mandelbrotIteracao(double complex c, int it) {
     }
 }
 
+void printMandelbrot(int x, int y) {
+    int i, j;
+
+    for(i = 0; i < x; i++) {
+        for(j = 0; j < y; j++) {
+            printf("* ");
+        }
+        printf("\n");
+    }
+}
+
+
 int main() {
 
     testingComplex();
@@ -46,5 +58,6 @@ int main() {
 
     mandelbrotIteracao(c, 6);
 
+    printMandelbrot(5, 5);
     return 0;
 }
