@@ -27,7 +27,7 @@ void testingComplex() {
     printf("O conjugado de Z1 = %.2f %+.2fi\n", creal(conjugate), cimag(conjugate));
 }
 
-void mandelbrotIteracao(double complex c, int it) {
+double complex mandelbrotIteracao(double complex c, int it) {
     int i;
     double complex z = 0.0 + 0.0 * I;
 
@@ -36,14 +36,26 @@ void mandelbrotIteracao(double complex c, int it) {
         printf("%i = %.2f + %.2fi\n", i, creal(z), cimag(z));
         z = (z * z) + c;
     }
+    return z;
 }
 
 void printMandelbrot(int x, int y) {
     int i, j;
+    double complex c = 0.0 + 0.0 * I;
+    double complex width = (0.0 + 2.0 * I) / (x / 2);
+    double complex hight = (2.0 + 0.0 * I) / (y / 2);
+    double complex widthInit = (0.0 + 2.0 * I) / (x / 2);
+    double complex hightInit = (2.0 + 0.0 * I) / (y / 2);
 
     for(i = 0; i < x; i++) {
+        width = widthInit;
         for(j = 0; j < y; j++) {
-            printf("* ");
+
+            printf("Z1 = %.2f + %.2fi Z2 = %.2f %+.2fi", creal(width), cimag(width), creal(hight), cimag(hight));
+
+            printf("*");
+            
+            printf(" ");
         }
         printf("\n");
     }
@@ -52,12 +64,12 @@ void printMandelbrot(int x, int y) {
 
 int main() {
 
-    testingComplex();
+    // testingComplex();
 
     double complex c = 1.0 + 0.0 * I;
 
     mandelbrotIteracao(c, 6);
 
-    printMandelbrot(5, 5);
+    // printMandelbrot(4, 4);
     return 0;
 }
