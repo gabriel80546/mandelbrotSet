@@ -51,7 +51,7 @@ void printMandelbrot(int x, int y) {
         width = widthInit;
         for(j = 0; j < y; j++) {
 
-            printf("Z1 = %.2f + %.2fi Z2 = %.2f %+.2fi", creal(width), cimag(width), creal(hight), cimag(hight));
+            // printf("Z1 = %.2f + %.2fi Z2 = %.2f %+.2fi", creal(width), cimag(width), creal(hight), cimag(hight));
 
             printf("*");
             
@@ -70,6 +70,6 @@ int main() {
 
     mandelbrotIteracao(c, 6);
 
-    // printMandelbrot(4, 4);
+    printMandelbrot(4, 4);
     return 0;
 }
